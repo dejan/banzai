@@ -1,6 +1,6 @@
 # Banzai
 
-TODO: Write a gem description
+Simple toolkit for processing input using filter/pipeline concept.
 
 ## Installation
 
@@ -39,9 +39,7 @@ GaussianBlur.new(radius:1.1).apply(image)
 Or if you want to apply multiple filter to an image create pipeline:
 
 ```ruby
-# note that you can combine classes and instances.
-# use classes if you want default options
-# use instances if you need to pass options to a filter.
+# note that you can combine classes and instances
 blurred_effect = Banzai::Pipeline.new [GaussianBlur.new(radius:1.1), Nostalgia] 
 blurred_effect.apply(image)
 ```
