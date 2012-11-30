@@ -26,7 +26,7 @@ class Nostalgia < Banzai::Filter
 end
 ```
 
-Then you can apply them to some input 
+Then you can apply them to some input:
 
 ```ruby
 GaussianBlur.new(radius:1.1).apply(image)
@@ -36,7 +36,7 @@ GaussianBlur.new(radius:1.1).apply(image)
 GaussianBlur.apply(image)
 ```
 
-Or if you want to apply multiple filter to an image create pipeline:
+Use pipelines to apply multiple fitlers:
 
 ```ruby
 # note that you can combine classes and instances
