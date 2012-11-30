@@ -46,8 +46,30 @@ blurred_effect.apply(image)
 
 Pipeline is just another filter, so you can mix them too into a new
 pipeline:
+
 ```ruby
 Banzai::Pipeline.new [blurred_effect, RoundCorners.new(radius:0.87)] 
+```
+
+## Working Example
+
+Here's a simple working example:
+
+```ruby
+class StripFilter < Banzai::Filter
+  def apply(input)
+    input.strip
+  end
+end
+
+class UpcaseFilter < Banzai::Filter
+  def apply(input)
+    input.upcase
+  end
+end
+
+pipeline = Banzai::Pipeline.new [StripFilter, UpcaseFilter]
+puts pipeline.apply('    ohai ') # prints "OHAI"
 ```
 
 ## Licence
