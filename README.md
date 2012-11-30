@@ -29,11 +29,11 @@ end
 Then you can apply them to some input 
 
 ```ruby
-# same as GaussianBlur.new.apply(image)
-GaussianBlur.apply(image)
-
-# if you need to pass same filter options
 GaussianBlur.new(radius:1.1).apply(image)
+
+# You can also use class method *apply* if filter doesn't have options, 
+# or you want to apply default ones (defined in implementation itself)
+GaussianBlur.apply(image)
 ```
 
 Or if you want to apply multiple filter to an image create pipeline:
