@@ -14,13 +14,13 @@ First, implement some filters:
 
 ```ruby
 class GaussianBlur < Banzai::Filter
-  def apply(input)
+  def call(input)
     # ... filter implementation ...
   end
 end 
 
 class Nostalgia < Banzai::Filter
-  def apply(input)
+  def call(input)
     # ... filter implementation ...
   end
 end
@@ -29,11 +29,11 @@ end
 Then you can apply them to some input:
 
 ```ruby
-GaussianBlur.new(radius:1.1).apply(image)
+GaussianBlur.new(radius:1.1).call(image)
 
-# You can also use class method *apply* if filter doesn't have options, 
+# You can also use class method *call* if filter doesn't have options, 
 # or you want to apply default ones (defined in implementation itself)
-GaussianBlur.apply(image)
+GaussianBlur.call(image)
 ```
 
 Use pipelines to apply multiple fitlers:
@@ -41,7 +41,7 @@ Use pipelines to apply multiple fitlers:
 ```ruby
 # note that you can combine classes and instances
 blurred_effect = Banzai::Pipeline.new [GaussianBlur.new(radius:1.1), Nostalgia] 
-blurred_effect.apply(image)
+blurred_effect.call(image)
 ```
 
 Pipeline is just another filter, so you can mix them too into a new
@@ -57,19 +57,19 @@ Here's a simple working example:
 
 ```ruby
 class StripFilter < Banzai::Filter
-  def apply(input)
+  def call(input)
     input.strip
   end
 end
 
 class UpcaseFilter < Banzai::Filter
-  def apply(input)
+  def call(input)
     input.upcase
   end
 end
 
 pipeline = Banzai::Pipeline.new [StripFilter, UpcaseFilter]
-puts pipeline.apply('    ohai ') # prints "OHAI"
+puts pipeline.call('    ohai ') # prints "OHAI"
 ```
 
 ## Licence

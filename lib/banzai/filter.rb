@@ -8,12 +8,12 @@ module Banzai
     end
 
     # should be redefined in subclass
-    def apply(input)
+    def call(input)
       raise NotImplementedError
     end
     
-    def self.apply(input)
-      new.apply(input)
+    def self.call(input)
+      new.call(input)
     end
 
   end

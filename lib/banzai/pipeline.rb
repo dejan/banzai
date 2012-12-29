@@ -5,9 +5,9 @@ module Banzai
       @filters = filters
     end
   
-    def apply(input)
+    def call(input)
       @filters.inject(input) do |content, filter|
-        filter.apply(content)
+        filter.call(content)
       end
     end
 

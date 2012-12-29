@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class LeetFilter < Banzai::Filter
-  def apply(input)
+  def call(input)
     input.gsub(/elite/, '1337')
   end
 end
@@ -14,8 +14,8 @@ describe Banzai::Filter do
     end
 
     it 'applies to some input' do
-      assert_equal '1337 security', LeetFilter.apply('elite security')
-      assert_equal '1337 security', LeetFilter.new.apply('elite security')
+      assert_equal '1337 security', LeetFilter.call('elite security')
+      assert_equal '1337 security', LeetFilter.new.call('elite security')
     end
   end
 end
