@@ -1,25 +1,27 @@
-describe Banzai::Filter, 'subclass' do
+RSpec.describe Banzai::Filter, 'subclass' do
 
-  class LeetFilter < Banzai::Filter
+  class Yell < Banzai::Filter
     def call(input)
-      input.gsub(/elite/, '1337')
+      input.to_s.upcase + "!" * exclamation_mark_count
+    end
+
+    def exclamation_mark_count
+      options[:exclamation_mark_count] || 1
     end
   end
 
-  context 'instance' do
-    it 'is created with options' do
-      filter = LeetFilter.new(:mode => 'hardcore')
-      expect(filter.options[:mode]).to eq 'hardcore'
-    end
+  subject { Yell }
+  let(:input) { 'chunky bacon' }
 
-    it 'applies to input' do
-      expect(LeetFilter.new.call('elite security')).to eq '1337 security'
+  describe '.call' do
+    it 'filters the input' do
+      expect(subject.call(input)).to eq 'CHUNKY BACON!'
     end
   end
 
-  context 'class' do
-    it 'applies to input' do
-      expect(LeetFilter.call('elite security')).to eq '1337 security'
+  describe '#call' do
+    it 'filters the input using options' do
+      expect(subject.new(exclamation_mark_count: 3).call(input)).to eq 'CHUNKY BACON!!!'
     end
   end
 

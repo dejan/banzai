@@ -1,25 +1,36 @@
-describe Banzai::Pipeline do
+RSpec.describe Banzai::Pipeline do
 
-  class StripFilter < Banzai::Filter
+  class Strip < Banzai::Filter
     def call(input)
       input.strip
     end
   end
 
-  class UpcaseFilter < Banzai::Filter
+  class Upcase < Banzai::Filter
     def call(input)
       input.upcase
     end
   end
 
-  it 'applies provided filters to input' do
-    pipeline = Banzai::Pipeline.new(StripFilter, UpcaseFilter)
-    expect(pipeline.call('    ohai ')).to eq 'OHAI'
+  let(:input) { '    ohai ' }
+  let(:output) { 'OHAI' }
+
+  describe 'initialized with array of filters' do
+    subject { Banzai::Pipeline.new([Strip, Upcase]) }
+    describe '.call' do
+      it 'filters the input' do
+        expect(subject.call(input)).to eq output
+      end
+    end
   end
 
-  it 'accepts array of filters' do
-    pipeline = Banzai::Pipeline.new([StripFilter, UpcaseFilter])
-    expect(pipeline.call('    ohai ')).to eq 'OHAI'
+  describe 'initialized with splatted array of filters' do
+    subject { Banzai::Pipeline.new(Strip, Upcase) }
+    describe '.call' do
+      it 'filters the input' do
+        expect(subject.call(input)).to eq output
+      end
+    end
   end
 
 end
