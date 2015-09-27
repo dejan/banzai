@@ -6,5 +6,5 @@ gemspec
 group :development do
   gem 'bundler'
   gem 'rake'
-  gem 'minitest'
+  gem 'rspec'
 end
