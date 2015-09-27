@@ -1,8 +1,8 @@
 module Banzai
   class Pipeline < Filter
 
-    def initialize(filters=[])
-      @filters = filters
+    def initialize(*filters)
+      @filters = filters.flatten
     end
   
     def call(input)

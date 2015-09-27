@@ -13,8 +13,13 @@ class UpcaseFilter < Banzai::Filter
 end
 
 describe Banzai::Pipeline do
-  it 'applies to input' do
-    pipeline = Banzai::Pipeline.new [StripFilter, UpcaseFilter]
+  it 'applies provided filters to input' do
+    pipeline = Banzai::Pipeline.new(StripFilter, UpcaseFilter)
+    assert_equal 'OHAI', pipeline.call('    ohai ')
+  end
+
+  it 'accepts array of filters' do
+    pipeline = Banzai::Pipeline.new([StripFilter, UpcaseFilter])
     assert_equal 'OHAI', pipeline.call('    ohai ')
   end
 end

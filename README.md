@@ -1,4 +1,5 @@
-# Banzai
+Banzai
+======
 
 Simple toolkit for processing input using filter/pipeline concept.
 
@@ -39,8 +40,9 @@ GaussianBlur.call(image)
 Use pipelines to apply multiple fitlers:
 
 ```ruby
-# note that you can combine classes and instances
-blurred_effect = Banzai::Pipeline.new [GaussianBlur.new(radius:1.1), Nostalgia] 
+# Note that you can combine classes and instances
+# Use instances when you need to pass options to the filter
+blurred_effect = Banzai::Pipeline.new(GaussianBlur.new(radius:1.1), Nostalgia)
 blurred_effect.call(image)
 ```
 
@@ -48,7 +50,7 @@ Pipeline is just another filter, so you can mix them too into a new
 pipeline:
 
 ```ruby
-Banzai::Pipeline.new [blurred_effect, RoundCorners.new(radius:0.87)] 
+Banzai::Pipeline.new(blurred_effect, RoundCorners.new(radius:0.87))
 ```
 
 ## Working Example
@@ -68,13 +70,14 @@ class UpcaseFilter < Banzai::Filter
   end
 end
 
-pipeline = Banzai::Pipeline.new [StripFilter, UpcaseFilter]
+pipeline = Banzai::Pipeline.new(StripFilter, UpcaseFilter)
 puts pipeline.call('    ohai ') # prints "OHAI"
 ```
 
+
 ## Licence
 
-Copyright (c) 2012 Dejan Simic
+Copyright (c) 2015 Dejan Simic
 
 MIT License
 
