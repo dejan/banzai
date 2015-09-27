@@ -7,9 +7,9 @@ module Banzai
       @options = options
     end
 
-    # This method should be redefined in subclasses
+    # Subclass should redefine this method
     def call(input)
-      raise NotImplementedError
+      input
     end
 
     def self.call(input)
