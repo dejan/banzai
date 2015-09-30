@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.description   = 'Toolkit for processing input using filters and pipelines'
   gem.summary       = 'Toolkit for processing input using filters and pipelines'
   gem.homepage      = 'https://github.com/dejan/banzai'
-  gem.licence       = 'MIT'
+  gem.license       = 'MIT'
 
   gem.add_development_dependency 'rubocop'
 

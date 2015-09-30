@@ -1,12 +1,12 @@
 RSpec.describe Banzai::Filter, 'subclass' do
-
+  # A simple Filter implementation for testing
   class Yell < Banzai::Filter
     def call(input)
-      input.to_s.upcase + "!" * exclamation_mark_count
+      input.to_s.upcase + '!' * level
     end
 
-    def exclamation_mark_count
-      options[:exclamation_mark_count] || 1
+    def level
+      options[:level] || 1
     end
   end
 
@@ -21,8 +21,7 @@ RSpec.describe Banzai::Filter, 'subclass' do
 
   describe '#call' do
     it 'filters the input using options' do
-      expect(subject.new(exclamation_mark_count: 3).call(input)).to eq 'CHUNKY BACON!!!'
+      expect(subject.new(level: 3).call(input)).to eq 'CHUNKY BACON!!!'
     end
   end
-
 end

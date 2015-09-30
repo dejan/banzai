@@ -1,11 +1,12 @@
 RSpec.describe Banzai::Pipeline do
-
+  # Simple filter implementation for testing
   class Strip < Banzai::Filter
     def call(input)
       input.strip
     end
   end
 
+  # Simple filter implementation for testing
   class Upcase < Banzai::Filter
     def call(input)
       input.upcase
@@ -32,5 +33,4 @@ RSpec.describe Banzai::Pipeline do
       end
     end
   end
-
 end
