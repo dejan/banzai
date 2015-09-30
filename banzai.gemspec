@@ -1,10 +1,9 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'banzai/version'
 
 Gem::Specification.new do |gem|
   gem.name          = 'banzai'
-  gem.version       = Banzai::VERSION
+  gem.version       = '0.2.0-snapshot'
   gem.authors       = ['Dejan Simic']
   gem.email         = ['desimic@gmail.com']
   gem.description   = 'Toolkit for processing input using filters and pipelines'
