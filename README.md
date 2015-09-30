@@ -74,6 +74,12 @@ pipeline = Banzai::Pipeline.new(StripFilter, UpcaseFilter)
 puts pipeline.call('    ohai ') # prints "OHAI"
 ```
 
+## Contributing
+
+Open a pull request but first make sure this is green:
+
+    bundle exec rake
+
 
 ## Licence
 
