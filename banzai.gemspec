@@ -12,6 +12,7 @@ Gem::Specification.new do |gem|
   gem.license       = 'MIT'
 
   gem.add_development_dependency 'rubocop'
+  gem.add_development_dependency 'yard'
 
   gem.files         = Dir['CHANGELOG.md', 'README.md', 'lib/**/*']
   gem.test_files    = Dir['spec/**/*']
