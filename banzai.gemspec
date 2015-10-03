@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = 'banzai'
-  gem.version       = '0.2.0-snapshot'
+  gem.version       = '0.1.2'
   gem.authors       = ['Dejan Simic']
   gem.email         = ['desimic@gmail.com']
   gem.description   = 'Toolkit for processing input using filters and pipelines'
