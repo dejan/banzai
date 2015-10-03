@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   gem.homepage      = 'https://github.com/dejan/banzai'
   gem.license       = 'MIT'
 
+  gem.add_development_dependency 'rake', '~> 10.4'
   gem.add_development_dependency 'rubocop', '~> 0.34'
   gem.add_development_dependency 'yard', '~> 0.8.7'
 
