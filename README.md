@@ -16,13 +16,15 @@ First, implement some filters:
 ```ruby
 class GaussianBlur < Banzai::Filter
   def call(input)
-    # ... filter implementation ...
+    # process input
+    # ...
   end
 end 
 
 class Nostalgia < Banzai::Filter
   def call(input)
-    # ... filter implementation ...
+    # process input
+    # ...
   end
 end
 ```
@@ -31,23 +33,25 @@ Then you can apply them to some input:
 
 ```ruby
 GaussianBlur.new(radius:1.1).call(image)
-
-# You can also use class method *call* if filter doesn't have options, 
-# or you want to apply default ones (defined in implementation itself)
-GaussianBlur.call(image)
 ```
 
-Use pipelines to apply multiple fitlers:
+You can also use class method `call` if filter doesn't have options, or you
+want to apply default ones (defined in implementation itself):
 
 ```ruby
-# Note that you can combine classes and instances
-# Use instances when you need to pass options to the filter
+Nostalgia.call(image)
+```
+
+To apply multiple filters to input use `Banzai::Pipeline`. Note that you can
+combine `Banzai::Filter` class and it's instances:
+
+```ruby
 blurred_effect = Banzai::Pipeline.new(GaussianBlur.new(radius:1.1), Nostalgia)
 blurred_effect.call(image)
 ```
 
-Pipeline is just another filter, so you can mix them too into a new
-pipeline:
+`Banzai::Pipeline` is just another filter, so you can mix them with filters
+into a new pipeline:
 
 ```ruby
 Banzai::Pipeline.new(blurred_effect, RoundCorners.new(radius:0.87))

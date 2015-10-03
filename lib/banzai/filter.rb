@@ -4,23 +4,25 @@ module Banzai
   class Filter
     attr_reader :options
 
-    # @param options [Hash] filter parameters that method {#call} can utilize
+    # @param [Hash] options The parameters that method {#call} can  utilize
     #   to make processing customizable
     def initialize(options = {})
       @options = options
     end
 
-    # Subclass should redefine this method to transform input to desired output
+    # Subclass should redefine this method to transform input to desired output.
+    # Input and return value should be the same type to provide way of chaining
+    # filters
     #
-    # @param input [Object] the type of the input is not defined since it will
-    #   depend on the (re)implementation of the method
+    # @param [Object] input
+    # @return [Object] the desired output
     def call(input)
       input
     end
 
     # Delegates to {#call} by creating an instance with default options
     #
-    # @param input [Object]
+    # @param [Object] input
     def self.call(input)
       new.call(input)
     end
