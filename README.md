@@ -43,7 +43,7 @@ Nostalgia.call(image)
 ```
 
 To apply multiple filters to input use `Banzai::Pipeline`. Note that you can
-combine `Banzai::Filter` class and it's instances:
+combine filter class and it's instances:
 
 ```ruby
 blurred_effect = Banzai::Pipeline.new(GaussianBlur.new(radius:1.1), Nostalgia)
