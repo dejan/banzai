@@ -1,5 +1,5 @@
 module Banzai
-  # Pipeline is a filter that accept an array of filters that will be applied
+  # Pipeline is a filter that accepts an array of filters that will be applied
   # to input sequentially.
   #
   # @example Create a pipeline and process input
