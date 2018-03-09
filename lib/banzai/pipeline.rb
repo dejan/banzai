@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Banzai
   # Pipeline is a filter that accepts an array of filters that will be applied
   # to input sequentially.

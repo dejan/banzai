@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Banzai
   # Filter transforms an input into desired output. The process of
   # transformation should be implemented in the {#call} method.

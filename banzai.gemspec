@@ -1,4 +1,6 @@
-lib = File.expand_path('../lib', __FILE__)
+# frozen_string_literal: true
+
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
@@ -12,8 +14,8 @@ Gem::Specification.new do |gem|
   gem.license       = 'MIT'
 
   gem.add_development_dependency 'rake', '~> 10.4'
-  gem.add_development_dependency 'rubocop', '~> 0.34'
-  gem.add_development_dependency 'yard', '~> 0.8.7'
+  gem.add_development_dependency 'rubocop', '~> 0.53.0'
+  gem.add_development_dependency 'yard', '~> 0.9.12'
 
   gem.files         = Dir['CHANGELOG.md', 'README.md', 'lib/**/*']
   gem.test_files    = Dir['spec/**/*']

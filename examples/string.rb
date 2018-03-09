@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'banzai'
 
 # Strips whitespaces from the input String

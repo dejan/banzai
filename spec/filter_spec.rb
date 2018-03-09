@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Banzai::Filter, 'subclass' do
   # A simple Filter implementation for testing
   class Yell < Banzai::Filter

@@ -1,18 +1,20 @@
+# frozen_string_literal: true
+
+# Simple filter implementation for testing
+class Strip < Banzai::Filter
+  def call(input)
+    input.strip
+  end
+end
+
+# Simple filter implementation for testing
+class Upcase < Banzai::Filter
+  def call(input)
+    input.upcase
+  end
+end
+
 RSpec.describe Banzai::Pipeline do
-  # Simple filter implementation for testing
-  class Strip < Banzai::Filter
-    def call(input)
-      input.strip
-    end
-  end
-
-  # Simple filter implementation for testing
-  class Upcase < Banzai::Filter
-    def call(input)
-      input.upcase
-    end
-  end
-
   let(:input) { '    ohai ' }
   let(:output) { 'OHAI' }
 
