@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name          = 'banzai'
-  gem.version       = '0.1.3-snapshot'
+  gem.version       = '0.1.3'
   gem.authors       = ['Dejan Simic']
   gem.email         = ['desimic@gmail.com']
   gem.description   = 'Toolkit for processing input using filters and pipelines'
